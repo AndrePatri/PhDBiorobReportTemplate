@@ -9,7 +9,7 @@ Main package dependencies:
 - The provided Gantt chart example uses the package [pgfgantt](https://ctan.org/pkg/pgfgantt):
 
     <div style="text-align:center">
-        <img src="docs/imgs/example_gantt.png" alt="drawing" width="300"/>
+        <img src="docs/imgs/example_gantt.png" alt="drawing" width="400"/>
     </div>  
 
     On Linux, if you installed LaTeX with ```sudo apt-get install texlive-full```, pgfgantt is available by default.
