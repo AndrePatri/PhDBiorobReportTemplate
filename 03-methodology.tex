@@ -1,0 +1,90 @@
+\section{Methodology and workplan}
+% [max 1.5 page]
+
+Provide: 
+\begin{itemize}
+	\item[-] Overview of the proposed approach you plan to follow (including methods and techniques)
+	\item[-] List of tasks organized in tables (see below). (For each task, brief summary of the progress of the research accomplishments (the details about the results achieved will be provided in Sect. 4). 
+	
+	\begin{table}[h]
+		\begin{center}
+			\renewcommand{\arraystretch}{1.3} % Adjust the vertical spacing
+			\setlength{\tabcolsep}{8pt} % Adjust the horizontal spacing
+			\begin{tabular}{|P{15cm}|}
+				\hline
+				\textbf{Task name: ......................} \\ \hline
+				\textbf{Scheduling: }(e.g. month 1-12) \\ \hline
+				\textbf{Performed actions: }(3-4 lines)\\
+				\hline
+				\textbf{Status: }(e.g.: “successfully completed by month 12” or “the work has \\ started and proceeds as planned“ or “delay due to….”)\\
+				\hline
+				\textbf{Publications relative to the task: } (referring to the list in Sect. 6)\\
+				\hline
+				\textbf{Revised planning: }\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+	Additionally, a Gantt chart is required (see below for an example).
+	\begin{figure}[h]
+		\begin{center}
+			\begin{ganttchart}[
+				canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+				hgrid style/.style={draw=black!40, line width=1.0pt},
+				vgrid={*1{draw=black!40, line width=1.0pt}},
+				today=11,
+				today rule/.style={
+					draw=black,
+					dash pattern=on 3.5pt off 4.5pt,
+					line width=1.8pt
+				},
+				y unit chart=1cm,
+				today label font=\footnotesize\bfseries,
+				title/.style={text=black, draw=black, fill=gray!30, font=\Large\bfseries, align=center},
+				title label font=\bfseries\footnotesize,
+				title label node/.append style={below=-7pt},
+				title left shift=0.0,
+				title top shift=0.2,
+				include title in canvas=false,
+				bar label font=\mdseries\small\color{black!90},
+				bar/.append style={draw=none, fill=blue!40},
+				bar incomplete/.append style={fill=lightblue!80},
+				bar height=0.2,
+				bar label node/.append style={left=0.2cm, fill=black!10},
+				bar progress label font=\bfseries\small,
+				bar progress label font=\mdseries\footnotesize\color{black!80},
+				%	progress label text={\si{\percent}},
+				group incomplete/.append style={fill=lightblue},
+				group/.append style={
+					fill=mydarkgreen!60, % Change this color for completed group bars
+				},
+				group left shift=0,
+				group right shift=0,
+				group label font=\mdseries\bfseries\small\color{black!90},
+				group height=.3,
+				group peaks tip position=0,
+				group label node/.append style={left=0.4cm, fill=black!20},
+				group progress label font=\mdseries\footnotesize\color{black!80},
+				]{1}{12}
+				\gantttitle[
+				title label node/.append style={below left=-7pt and -7pt}
+				]{Months:\quad1}{1}
+				\gantttitlelist{2,...,12}{1} \\
+				[grid]
+				\ganttgroup[progress=61]{Macro-task 1}{1}{10} \\
+				[grid]
+				\ganttbar[
+				progress=75,
+				name=subtask1
+				]{\textbf{Subtask 1.1}}{1}{8} \\
+				[grid]
+				\ganttbar[
+				progress=47,
+				name=subtask1
+				]{\textbf{Subtask 1.2}}{4}{10}
+			\end{ganttchart}
+		\end{center}
+		\caption{Example Gantt chart for your tasks.}
+	\end{figure}
+	
+\end{itemize}
