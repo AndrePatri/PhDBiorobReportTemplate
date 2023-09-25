@@ -52,11 +52,18 @@
 \usepackage{wasysym}
 
 \usepackage{etoolbox} % for \forcsvlist
+\usepackage{calc}
 % for list of full citations
-\newcommand{\fullcitelist}[2]{%
-	\begin{enumerate}[label={[#1.\arabic*]}]
-		\forcsvlist{\item \fullcite}{#2}
+%\newcommand{\fullcitelist}[2]{%
+%	\begin{enumerate}[label={[#1.\arabic*]}]
+%		\forcsvlist{\item \fullcite}{#2}
+%	\end{enumerate}%
+%}
+\newlength{\mylength} % define a new length \mylength
+\newcommand{\fullcitelist}[3][1em]{%
+	\setlength{\mylength}{\leftmargin+#1} % set \mylength to \leftmargin + #1
+	\begin{enumerate}[label={[#2.\arabic*]}, labelsep=1em, leftmargin=\mylength]
+		\forcsvlist{\item \fullcite}{#3}
 	\end{enumerate}%
 }
-
 \usepackage{graphicx} 
