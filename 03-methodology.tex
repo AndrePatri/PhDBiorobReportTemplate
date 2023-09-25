@@ -30,6 +30,7 @@ Provide:
 	Additionally, a Gantt chart is required (see below for an example).
 	\begin{figure}[h]
 		\begin{center}
+			\scalebox{0.8}{ % scaling for the Gantt chart
 			\begin{ganttchart}[
 				canvas/.append style={fill=none, draw=black!5, line width=.75pt},
 				hgrid style/.style={draw=black!40, line width=1.0pt},
@@ -85,6 +86,7 @@ Provide:
 				name=subtask1
 				]{\textbf{Subtask 1.2}}{4}{10}
 			\end{ganttchart}
+			}
 		\end{center}
 		\caption{Example Gantt chart for your tasks.}
 	\end{figure}
