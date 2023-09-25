@@ -1,0 +1,52 @@
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{url}
+%\usepackage{cite}
+\usepackage[backend=bibtex, style=ieee, maxbibnames=99]{biblatex}
+\addbibresource{refs/refs.bib}
+%With the dontbib category the entries added with \fullcite will not be considered by the \printbibliography
+\DeclareBibliographyCategory{dontbib} 
+\addtocategory{dontbib}{TPO, TPO2, TPO3}
+\preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\setstretch{1.0} 
+\usepackage{titlesec}
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=4pt,parsep=2pt,topsep=2pt,leftmargin=0.5cm,labelsep=4pt}
+
+% setting Arial font
+\usepackage{fontspec}
+\usepackage{fontspec-luatex}
+\setmainfont{Arial} 
+% for Gantt charts
+\usepackage{pgfgantt}
+
+\usepackage{cleveref}
+
+% colors
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+\definecolor{linkgreen}{RGB}{20,182,117}
+\definecolor{linkorange}{RGB}{205,134,41}
+\definecolor{green}{RGB}{0, 128, 0}
+\definecolor{red}{RGB}{255, 0, 0}
+\definecolor{lightblue}{RGB}{173, 216, 230}
+\definecolor{mydarkblue}{RGB}{0, 0, 139}
+\definecolor{mydarkgreen}{RGB}{0, 100, 0}
+\definecolor{mylightgreen}{RGB}{56, 93, 75}
+\setganttlinklabel{s-s}{START-TO-START}
+\setganttlinklabel{f-s}{FINISH-TO-START}
+\setganttlinklabel{f-f}{FINISH-TO-FINISH}
+\sffamily
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{pstricks}
+\usepackage{wasysym}
