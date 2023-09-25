@@ -2,7 +2,7 @@
 
 This is a very simple LaTeX template for the annual report of the Bioengineering and Robotics PhD progam from University of Genova, equivalent to the Word one provided [here](https://biorob.phd.unige.it/docforms).
 
-You can inspect a precompiled pdf example by going into the subfolder ```docs/example_empty/phd_biorob_report_template_example.pdf```.
+You can inspect a precompiled pdf example [here](https://github.com/AndrePatri/PhDBiorobReportTemplate/blob/main/docs/example_empty/phd_biorob_report_template_example.pdf).
 
 Main package dependencies: 
 - To mimic the original Word template, the package uses ```Arial``` font. However this is a Windows font which is not normally available on Linux distributions. If working with linux, install it with `sudo apt-get install ttf-mscorefonts-installer`. 
