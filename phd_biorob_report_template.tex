@@ -8,50 +8,28 @@
 % packages 
 \input{00-imports}
 
-\author{Your Name}
-\title{Bioengineering and Robotics PhD annual report template}
+% definitions
+\input{00-defs}
 
-\titleformat{\section}
-{\bfseries\normalsize} % Formatting for the title (bold and large)
-{\thesection.}     % Section number
-{0.5em}        
-     % Space between section number and title
-{}                % Code before the title
+% you have to set all this personal information
+\setCurriculumName{My Curriculum}
+\setResearchProjName{Title of you research project\\(tentative)}
+\setTutors{John Doe, Jane Doe, Sam Smith}
+\setStudent{Name Surname}
+\setCycle{$\mathrm{n}^{\mathrm{th}}$}
+\setYear{20xx-xx}
+\setContacts{my.email@me.it,my\_other.email@otherme.com}
 
-\titleformat{\subsection}
-{\normalsize} % Formatting for the title (bold and large)
-{\thesubsection}     % Section number
-{1em}        
-% Space between section number and title
-{}         
+\author{\getStudentName}
+\title{Bioengineering and Robotics PhD annual report template - \getStudentName}
+
+\checksetup
 
 \begin{document}
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.99\textwidth]{logos/top_logos.pdf}
-\end{figure}
-\hphantom{h}\vspace{1.3cm}
 
+\addFrontPage % adds fron page with all necessary info
 
-\begin{center}
-	
-\LARGE{\textbf{Doctorate in Bioengineering and Robotics }\vspace{0.4cm}\\
-Curriculum: [curriculum name]}
-
-\end{center}
-
-\begin{flushleft}
-\vspace{1.5cm}
-\large{\textbf{Student: }}\large{{[surname], [name]}}\vspace{0.2cm}\\
-\large{\textbf{Cycle: }}\large{[cycle number]}\vspace{0.2cm}\\
-\large{\textbf{Tutor(s): }}\large{{[surname], [name]}}\vspace{0.2cm}\\
-\large{\textbf{Year: }}\large{[academic year]}\vspace{0.2cm}\\
-\large{\textbf{Contacts: }}\large{{my.email@me.it}}
-\end{flushleft}
-\clearpage
-\begin{center}
-	\textbf{\normalsize{Title of your research project\\ (tentative)}}
-\end{center}
+\addResearchProjTitle
 
 \input{01-objective}
 \input{02-soa}
@@ -60,7 +38,7 @@ Curriculum: [curriculum name]}
 \input{05-training}
 \input{06-pub}
 \input{07-activities}
-
+\input{08-signatures}
 \cleardoublepage
 
 %\bibliographystyle{unsrt}

@@ -1,0 +1,219 @@
+\setlist[itemize]{itemsep=4pt,parsep=2pt,topsep=2pt,leftmargin=0.5cm,labelsep=4pt}
+
+% colors
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+\definecolor{linkgreen}{RGB}{20,182,117}
+\definecolor{linkorange}{RGB}{205,134,41}
+\definecolor{green}{RGB}{0, 128, 0}
+\definecolor{red}{RGB}{255, 0, 0}
+\definecolor{lightblue}{RGB}{173, 216, 230}
+\definecolor{mydarkblue}{RGB}{0, 0, 139}
+\definecolor{mydarkgreen}{RGB}{0, 100, 0}
+\definecolor{mylightgreen}{RGB}{56, 93, 75}
+\setganttlinklabel{s-s}{START-TO-START}
+\setganttlinklabel{f-s}{FINISH-TO-START}
+\setganttlinklabel{f-f}{FINISH-TO-FINISH}
+\sffamily
+
+% sections setup
+
+\titleformat{\section}
+{\bfseries\normalsize} % Formatting for the title (bold and large)
+{\thesection.}     % Section number
+{0.5em}        
+% Space between section number and title
+{}                % Code before the title
+
+\titleformat{\subsection}
+{\normalsize} % Formatting for the title (bold and large)
+{\thesubsection}     % Section number
+{1em}        
+% Space between section number and title
+{}         
+
+% cmd for full citations
+\newlength{\mylength} % define a new length \mylength
+\newcommand{\fullcitelist}[3][1em]{%
+	\setlength{\mylength}{\leftmargin+#1} % set \mylength to \leftmargin + #1
+	\begin{enumerate}[label={[#2.\arabic*]}, labelsep=1em, leftmargin=\mylength]
+		\forcsvlist{\item \fullcite}{#3}
+	\end{enumerate}%
+}
+
+\ExplSyntaxOn
+\seq_new:N \g_tutorlist_seq
+\seq_new:N \g_contactslist_seq
+
+\NewDocumentCommand{\setCurriculumName}{m}
+{
+	\tl_gset:Nn \g_curriculum_tl {#1}
+}
+
+\NewDocumentCommand{\setResearchProjName}{m}
+{
+	\tl_gset:Nn \g_proj_tl {#1}
+}
+
+\NewDocumentCommand{\setTutors}{m}
+{
+	\seq_gset_from_clist:Nn \g_tutorlist_seq {#1}
+}
+
+\NewDocumentCommand{\setStudent}{m}
+{
+	\tl_gset:Nn \g_student_tl {#1}
+}
+
+\NewDocumentCommand{\setCycle}{m}
+{
+	\tl_gset:Nn \g_cycle_tl {#1}
+}
+
+\NewDocumentCommand{\setYear}{m}
+{
+	\tl_gset:Nn \g_year_tl {#1}
+}
+
+\NewDocumentCommand{\setContacts}{m}
+{
+	\seq_gset_from_clist:Nn \g_contactslist_seq {#1}
+}
+
+\NewDocumentCommand{\getCurriculumName}{}{\tl_use:N \g_curriculum_tl}
+
+\NewDocumentCommand{\getProjName}{}{\tl_use:N \g_proj_tl}
+
+\NewDocumentCommand{\getStudentName}{}{\tl_use:N \g_student_tl}
+
+\NewDocumentCommand{\getTutorsList}{}
+{
+	\seq_use:Nn \g_tutorlist_seq {,~}
+}
+
+\NewDocumentCommand{\getCycle}{}
+{
+	\tl_use:N \g_cycle_tl
+}
+
+\NewDocumentCommand{\getYear}{}
+{
+	\tl_use:N \g_year_tl
+}
+
+\NewDocumentCommand{\getContactsList}{}
+{
+	\seq_use:Nn \g_contactslist_seq {,~}
+}
+
+\NewDocumentCommand{\checksetup}{}
+{
+	\seq_if_empty:NT \g_tutorlist_seq
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-tutors-set}
+	}
+	\seq_if_empty:NT \g_contactslist_seq
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-contacts-set}
+	}
+	\tl_if_empty:NT \g_student_tl
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-student-set}
+	}
+	\tl_if_empty:NT \g_proj_tl
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-projectname-set}
+	}
+	\tl_if_empty:NT \g_curriculum_tl
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-curriculum-set}
+	}
+	\tl_if_empty:NT \g_cycle_tl
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-cycle-set}
+	}
+	\tl_if_empty:NT \g_year_tl
+	{
+		\msg_error:nn {PhdBiorobReportTemplate} {no-year-set}
+	}
+}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-tutors-set} {No~tutors~have~been~set!~Please~use~\space\string\setTutors.}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-contacts-set} {No~contacts~set!~Please~use~\space\string\setContacts\space.}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-student-set} { No~student~has~been~set!~Please~use~\string\setStudent.}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-curriculum-set} { No~curriculum~has~been~set!~Please~use~\string\setCurriculumName.}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-projectname-set} { No~research~project~name~has~been~set!~Please~use~\string\setResearchProjName.}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-cycle-set} { No~PhD~cycle~has~been~set!~Please~use~\space\string\setCycle.}
+
+\msg_new:nnn {PhdBiorobReportTemplate} {no-year-set} { No~academic~year~has~been~set!~Please~use~\space\string\setYear.}
+
+\NewDocumentCommand{\signature}{}
+{
+	\vfill
+	\noindent
+	\begin{minipage}{\textwidth}
+		\begin{flushright}
+			\seq_map_inline:Nn \g_tutorlist_seq
+			{
+				##1 \\ \rule{60mm}{.55pt} \\[1ex]
+			}
+			\tl_use:N \g_student_tl \\ \rule{60mm}{.55pt} \\[1ex]
+		\end{flushright}
+	\end{minipage}
+}
+
+\NewDocumentCommand{\addPersonalData}{}
+{
+	\begin{flushleft}
+		\vspace{1.5cm}
+		\large{\textbf{Student:~}}\large{{\getStudentName}}\vspace{0.2cm}\\
+		\large{\textbf{Cycle:~}}\large{\getCycle}\vspace{0.2cm}\\
+		\large{\textbf{Tutor(s):~}}\large{{\getTutorsList}}\vspace{0.2cm}\\
+		\large{\textbf{Year:~}}\large{\getYear}\vspace{0.2cm}\\
+		\large{\textbf{Contacts:~}}\large{\getContactsList}
+	\end{flushleft}
+}
+
+\NewDocumentCommand{\addResearchProjTitle}{}
+{
+	\begin{center}
+		\textbf{\normalsize{\getProjName}}
+	\end{center}
+}
+
+\NewDocumentCommand{\addTopLogos}{}
+{
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=0.99\textwidth]{logos/top_logos.pdf}
+	\end{figure}
+	\hphantom{h}\vspace{1.3cm}
+}
+
+\NewDocumentCommand{\addFrontPage}{}
+{
+	\addTopLogos
+	
+	\begin{center}
+		
+		\LARGE{\textbf{Doctorate~in~Bioengineering~and~Robotics }\vspace{0.4cm}\\
+			Curriculum:~\getCurriculumName}
+		
+	\end{center}
+	
+	\addPersonalData % adds personal data to frontpage
+	
+	\clearpage
+}
+
+\ExplSyntaxOff
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\setmainfont{Arial} 
