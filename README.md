@@ -6,6 +6,7 @@ You can inspect a precompiled pdf example [here](https://github.com/AndrePatri/P
 <p align="center">
   <img src="docs/example_empty/report_overview.gif" alt="report_overview" width="300" />
 </p>
+
 Main package dependencies: 
 - To mimic the original Word template, the package uses ```Arial``` font. However this is a Windows font which is not normally available on Linux distributions. If working with linux, install it with `sudo apt-get install ttf-mscorefonts-installer`. 
 - Also, to be able to generate a document with Arial, you need compile your document using *LuaLaTex*. On Linux, you can install *LuaLaTex* via apt with ``` sudo apt install texlive-luatex```. For instance (after having checked ```texlive-luatex``` is installed), if using TeXstudio editor, you can set LuaLaTex as the compiler by going to ```Options/Configure Texstudio/Build/``` and changing the ```Default Compiler``` with one supporting Arial.
